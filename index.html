@@ -20,11 +20,7 @@
       <script>
       urlParams = new URLSearchParams(window.location.search);
       document.write(urlParams);
-      if (urlParams.get('specialization') === 'ss') {
-        document.write('<br>вывести массив по сс');
-      } else {
-        document.write('<br>вывести массив по программированию');
-        }
+      document.write(urlParams.get('specialization'));
       </script>
       <p>
         <a href="mailto:smirnov-83@list.ru">smirnov-83@list.ru</a>,
