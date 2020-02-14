@@ -6,11 +6,17 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Резюме Смирнов Вячеслав</title>
+    <script>
+    const experience = ['ss acs', 'ss cctv', 'ss fas', 'ss pas', 'ss scs', 'ss sas', cd git', 'cd js', 'cd linux'];
+    </script>
   </head>
 
   <body>
     <div id="header">
       <h1>Смирнов Вячеслав</h1>
+      <noscript>
+	Ваш браузер не поддерживает JavaScript или поддержка отключена в настройках.
+      </noscript>
       <script>document.write('<h6><i>Здесь будет интерактивное резюме</i></h6>')</script><br>
       <form action="https://smirnov-vv.github.io/resume/index.html">
       <input type="radio" name="specialization" value="ss"/>слаботочные системы<br>
@@ -24,9 +30,9 @@
       let speciality = urlParams.get('specialization');
       document.write(speciality);
       if (speciality === 'ss') {
-      document.write('<br>if SS');
+      document.write('<br>ss'experience);
       } else {
-      document.write('<br>if coding');
+      document.write('<br>coding'experience);
       }
       </script>
       <p>
