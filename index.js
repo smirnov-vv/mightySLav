@@ -25,10 +25,10 @@ class Company {
   }
 }
 const skills = {
-  pnr: 'Пуско-наладочные работы',
-  predesign: 'Подготовка ПД',
-  design: 'Подготовка РД',
-  asbuilt: 'Подготовка ИД',
+  pnr: 'Выполнение пуско-наладочных работ',
+  predesign: 'Подготовка проектной документации',
+  design: 'Подготовка рабочей документации',
+  asbuilt: 'Подготовка исполнительной документации',
 };
 const systems = {
   aps: 'АПС',
@@ -83,10 +83,10 @@ const filtered = mgd
   .map((item) => `<a href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">${item.skill}. <b>${item.system}</b></h5>
-      <small>${item.year}</small>
+      <small>Ключевые достижения...</small>
     </div>
     <p class="mb-1">${item.site}</p>
-    <small>Подробнее...</small>
+    <small>${mgd.getCompany()}, ${item.year}</small>
     </a>`)
   .join('');
 // console.log(filtered);
