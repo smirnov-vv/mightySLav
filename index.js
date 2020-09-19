@@ -83,10 +83,10 @@ const filtered = mgd
   .map((item) => `<a href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">${item.skill}. <b>${item.system}</b></h5>
-      <small>Ключевые достижения...</small>
+      <small>${mgd.getCompany()}, ${item.year}</small>
     </div>
     <p class="mb-1">${item.site}</p>
-    <small>${mgd.getCompany()}, ${item.year}</small>
+    <small>Подробнее о ключевых достижениях...</small>
     </a>`)
   .join('');
 // console.log(filtered);
