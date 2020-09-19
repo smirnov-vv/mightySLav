@@ -1,7 +1,8 @@
 class Company {
-  constructor(company, description) {
+  constructor(company, description, type) {
     this.company = company;
     this.description = description;
+    this.type = type;
     this.skills = [];
   }
 
@@ -38,7 +39,7 @@ const systems = {
   scs: 'СКС',
   asutp: 'АСУТП',
 };
-const rubezh1 = new Company('ГК Рубеж', 'Производитель оборудования систем безопасности');
+const rubezh1 = new Company('ГК Рубеж', 'Производитель оборудования систем безопасности', 'lvs');
 rubezh1.setSkill(skills.asbuilt,
   systems.aps,
   'Корпуса проведения саммита АТЭС, остров Русский, Приморский край',
@@ -50,7 +51,7 @@ rubezh1.setSkill(skills.design,
   2009,
   '');
 
-const mgd = new Company('ООО "Марин Газ Дизайн"', 'Комплексное проектирование объектов газовой промышленности');
+const mgd = new Company('ООО "Марин Газ Дизайн"', 'Комплексное проектирование объектов газовой промышленности', 'lvs');
 mgd.setSkill(skills.design,
   systems.asutp,
   'Компрессорная станция «Георгиевск» ООО «Газпром трансгаз Ставрополь»',
@@ -79,7 +80,7 @@ mgd.setSkill(skills.design,
 
 const filtered = rubezh1
   .getSystem(systems.scs)
-  .map((item) => `<center><p>${item.skill}<br><b>${item.system}</b><br>${item.site}<br>${item.year}<br>${item.description}<br></p></center>`)
+  .map((item) => `<p>${item.skill}<br><b>${item.system}</b><br>${item.site}<br>${item.year}<br>${item.description}<br></p>`)
   .join('');
 
 const data = document.querySelector('[data-info]');
