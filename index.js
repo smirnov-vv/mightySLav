@@ -89,8 +89,8 @@ const filtered = mgd
     <small>Подробнее...</small>
     </a>`)
   .join('');
-console.log(filtered);
+// console.log(filtered);
 
-// const data = document.querySelector('.list-group');
-// console.log(data);
-// data.innerHTML = filtered;
+const data = document.querySelector('.list-group');
+console.log(data);
+data.innerHTML = filtered;
