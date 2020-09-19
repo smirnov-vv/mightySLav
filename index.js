@@ -80,9 +80,17 @@ mgd.setSkill(skills.design,
 
 const filtered = rubezh1
   .getSystem(systems.scs)
-  .map((item) => `<p>${item.skill}<br><b>${item.system}</b><br>${item.site}<br>${item.year}<br>${item.description}<br></p>`)
+  .map((item) => `<a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">${item.skill}. <b>${item.system}</b></h5>
+      <small>${item.year}</small>
+    </div>
+    <p class="mb-1">${item.site}</p>
+    <small>${item.description}</small>
+    </a>`)
   .join('');
+// console.log(filtered);
 
-const data = document.querySelector('[data-info]');
+const data = document.querySelector('.list-group');
 console.log(data);
 data.innerHTML = filtered;
