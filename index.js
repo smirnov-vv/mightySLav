@@ -83,11 +83,11 @@ lvsSkills.setSkill(companies.mgd.name,
 
 const handler = (e) => {
   const { target } = e;
-  if (label.classList.contains('active')) {
-    label.classList.remove('active');
+  if (target.classList.contains('active')) {
+    target.classList.remove('active');
     target.removeAttribute('checked');
   } else {
-    label.classList.add('active');
+    target.classList.add('active');
     target.setAttribute('checked', '');
   }
   show(); 
