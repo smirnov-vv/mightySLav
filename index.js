@@ -12,7 +12,7 @@ class SkillsList {
     return this.skills.filter((item) => item.skill === requestedSkill);
   }
 
-  getSystem(...requestedSystems) {
+  getSystem(requestedSystems) {
     return this.skills.filter((item) => requestedSystems.includes(item.system));
   }
 
