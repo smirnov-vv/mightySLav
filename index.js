@@ -82,7 +82,7 @@ lvsSkills.setSkill(companies.mgd.name,
   2013);
 
 const labels = document.querySelectorAll('.btn');
-labels.forEach((label) => label.addEventListener('click', (e) => {
+labels.forEach((label) => label.addEventListener('click', () => {
   if (label.classList.contains('active')) {
     label.classList.remove('active');
     label.children[0].removeAttribute('checked');
@@ -90,7 +90,7 @@ labels.forEach((label) => label.addEventListener('click', (e) => {
     label.classList.add('active');
     label.children[0].setAttribute('checked', '');
   }
-  show(); 
+  // show();
 }));
 
 const show = () => {
