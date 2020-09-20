@@ -84,14 +84,15 @@ lvsSkills.setSkill(companies.mgd.name,
 const buttons = document.querySelectorAll('[type="checkbox"]');
 buttons.forEach((button) => button.addEventListener('click', (e) => {
   const { target } = e;
-  if (target.classList.contains('active')) {
-    target.classList.remove('active');
+  const currentLabel = target.closest('.btn');
+  if (currentLabel.classList.contains('active')) {
+    currentLabel.classList.remove('active');
     target.removeAttribute('checked');
   } else {
-    target.classList.add('active');
+    currentLabel.classList.add('active');
     target.setAttribute('checked', '');
   }
-  // show();
+  show();
 }));
 
 const show = () => {
