@@ -18,7 +18,7 @@ class SkillsList {
 
   setSkill(company, companyDescription, skill, system, site, description, year) {
     this.skills.push({
-      company, companyDescription, skill, system, site, description, year
+      company, companyDescription, skill, system, site, description, year,
     });
   }
 }
@@ -41,7 +41,7 @@ const systemNames = {
   aovk: 'АОВК',
 };
 const companies = {
-  rubezh: { name: 'ГК Рубеж', description: 'Производитель оборудования систем безопасности'},
+  rubezh: { name: 'ГК Рубеж', description: 'Производитель оборудования систем безопасности' },
   mgd: { name: 'ООО Марин Газ Дизайн', description: 'Комплексное проектирование объектов газовой промышленности' },
 };
 const lvsSkills = new SkillsList('lvs');
@@ -81,10 +81,9 @@ lvsSkills.setSkill(companies.mgd.name,
   '',
   2013);
 
-
 const handler = (e) => {
   const { target } = e;
-  if (target.classList.contains(active)) {
+  if (target.classList.contains('active')) {
     target.classList.remove('active');
     target.children[0].removeAttribute('checked');
   } else {
@@ -110,9 +109,7 @@ const filtered = lvsSkills
     </a>
     `)
   .join('');
-//console.log(filtered);
+// console.log(filtered);
 const data = document.querySelector('.list-group');
 console.log(data);
 data.innerHTML = filtered;
-
-
