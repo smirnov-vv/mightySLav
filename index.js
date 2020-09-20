@@ -12,8 +12,8 @@ class SkillsList {
     return this.skills.filter((item) => item.skill === requestedSkill);
   }
 
-  getSystem(requestedSystem) {
-    return this.skills.filter((item) => item.system === requestedSystem);
+  getSystem(...requestedSystems) {
+    return this.skills.filter((item) => requestedSystems.includes(item.system));
   }
 
   setSkill(company, companyDescription, skill, system, site, description, year) {
@@ -90,15 +90,22 @@ const handler = (e) => {
     target.classList.add('active');
     target.children[0].setAttribute('checked');
   }
-  console.log(target.innerHTML);
 };
 
-const checkboxes = document.querySelectorAll('.btn');
-checkboxes.forEach((checkbox) => checkbox.addEventListener('click', handler));
+const labels = document.querySelectorAll('.btn');
+labels.forEach((label) => label.addEventListener('click', handler));
 
-const filtered = lvsSkills
-  .getFullList()
-  .map((item) => `
+const filter = () => {
+  const skillList = [];
+  const inputs = document.querySelectorAll('[type="checkbox"]');
+  inputs.forEach((input) => {
+    if (input.hasAttribute('checked')) {
+      skillList.push(systemNames[input.getAttribute('data-type')]);
+    }
+  });
+  const filtered = lvsSkills
+    .getSkill(skillList)
+    .map((item) => `
     <a href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">${item.skill}. <b>${item.system}</b></h5>
@@ -108,8 +115,9 @@ const filtered = lvsSkills
     <small>Подробнее о ключевых достижениях...</small>
     </a>
     `)
-  .join('');
-// console.log(filtered);
-const data = document.querySelector('.list-group');
-console.log(data);
-data.innerHTML = filtered;
+    .join('');
+  const data = document.querySelector('.list-group');
+  data.innerHTML = filtered;
+};
+
+filter();
