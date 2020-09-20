@@ -120,4 +120,4 @@ const show = () => {
   data.innerHTML = filtered;
 };
 
-show();
+// show();
