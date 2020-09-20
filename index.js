@@ -82,6 +82,21 @@ lvsSkills.setSkill(companies.mgd.name,
   2013);
 
 
+const handler = (e) => {
+  const { target } = e;
+  if (target.classList.contains(active)) {
+    target.classList.remove('active');
+    target.children[0].removeAttribute('checked');
+  } else {
+    target.classList.add('active');
+    target.children[0].setAttribute('checked');
+  }
+  console.log(target.innerHTML);
+};
+
+const checkboxes = document.querySelectorAll('.btn');
+checkboxes.forEach((checkbox) => checkbox.addEventListener('click', handler));
+
 const filtered = lvsSkills
   .getFullList()
   .map((item) => `
