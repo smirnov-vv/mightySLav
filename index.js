@@ -81,30 +81,30 @@ lvsSkills.setSkill(companies.mgd.name,
   '',
   2013);
 
-const handler = (e) => {
-  const { target } = e;
-  if (target.classList.contains('active')) {
-    target.classList.remove('active');
-    target.children[0].removeAttribute('checked');
-  } else {
-    target.classList.add('active');
-    target.children[0].setAttribute('checked');
-  }
-};
-
 const labels = document.querySelectorAll('.btn');
-labels.forEach((label) => label.addEventListener('click', handler));
+labels.forEach((label) => label.addEventListener('click', (e) => {
+  const { target } = e;
+  if (label.classList.contains('active')) {
+    label.classList.remove('active');
+    target.removeAttribute('checked');
+  } else {
+    label.classList.add('active');
+    target.setAttribute('checked', '');
+  }
+  show();
+}));
 
-const filter = () => {
+const show = () => {
   const skillList = [];
   const inputs = document.querySelectorAll('[type="checkbox"]');
   inputs.forEach((input) => {
     if (input.hasAttribute('checked')) {
       skillList.push(systemNames[input.getAttribute('data-type')]);
+      console.log(input.getAttribute('data-type'));
     }
   });
   const filtered = lvsSkills
-    .getSkill(skillList)
+    .getSystem(skillList)
     .map((item) => `
     <a href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
@@ -120,4 +120,4 @@ const filter = () => {
   data.innerHTML = filtered;
 };
 
-filter();
+show();
